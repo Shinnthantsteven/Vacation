@@ -1,5 +1,5 @@
 /* Vacation offline cache service worker */
-const CACHE_NAME = 'vacation-offline-v9-vietnam-apr';
+const CACHE_NAME = 'vacation-offline-v10-vault-fix';
 const PRECACHE_URLS = [
   "./",
   "./index.html",
@@ -98,6 +98,12 @@ self.addEventListener('fetch', (event) => {
         return (await caches.match('./index.html')) || (await caches.match('./'));
       })
     );
+    return;
+  }
+
+  // Locked plan: always get the newest file from the network, never from the cache.
+  if (url.pathname.includes('/vault/')) {
+    event.respondWith(fetch(req, { cache: 'no-store' }));
     return;
   }
 
