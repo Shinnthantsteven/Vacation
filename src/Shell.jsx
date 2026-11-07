@@ -4,7 +4,7 @@ import LockScreen from './components/LockScreen';
 
 const PLANS = [
   { id: 'thailand', emoji: '🇹🇭', name: 'Thailand 2026', sub: 'Jun 2026 · Chiang Mai → Pai → Bangkok', locked: false },
-  { id: 'vietnam', emoji: '🌴', name: 'Bali → Vietnam 2027', sub: 'Jun 2027 · Private', locked: true, vault: 'vietnam' },
+  { id: 'vietnam', emoji: '🇻🇳', name: 'Vietnam 2027', sub: 'Apr 2–30, 2027 · Private', locked: true, vault: 'vietnam' },
 ];
 const AUTO_LOCK_MS = 5 * 60 * 1000; // lock again if the app stays in the background this long
 
@@ -75,7 +75,7 @@ export default function Shell() {
 
       {plan === 'thailand' && <App />}
       {plan === 'vietnam' && (unlocked
-        ? <iframe title="Bali → Vietnam 2027" srcDoc={vaultHtml} className="shell-frame" />
+        ? <iframe title="Vietnam 2027" srcDoc={vaultHtml} className="shell-frame" />
         : <LockScreen vaultName={current.vault} title={current.name} onUnlock={setVaultHtml} />)}
     </div>
   );

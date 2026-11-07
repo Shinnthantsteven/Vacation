@@ -1,5 +1,5 @@
 /* Vacation offline cache service worker */
-const CACHE_NAME = 'vacation-offline-v8-shell';
+const CACHE_NAME = 'vacation-offline-v9-vietnam-apr';
 const PRECACHE_URLS = [
   "./",
   "./index.html",
